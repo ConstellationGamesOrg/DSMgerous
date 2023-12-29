@@ -1,0 +1,11 @@
+# Do not include any 3rd party code in the github statistics. This prevents the
+# project from being marked as another primary language
+DSMgine/vendor/** linguist-vendored=true
+DSMgerous/vendor/** linguist-vendored=true
+vendor/** linguist-vendored=true
+
+# Set default behavior to automatically normalize line endings.
+* text=auto
+
+# More overrides can be found at:
+# https://github.com/github/linguist/blob/master/docs/overrides.md
