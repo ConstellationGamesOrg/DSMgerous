@@ -1,16 +1,47 @@
 #include <DSMgine.h>
 
+class GameLayer : public DSMgine::Layer
+{
+public:
+	GameLayer()
+		: Layer("GameLayer")
+	{
+	}
+
+	virtual ~GameLayer()
+	{
+	}
+
+	virtual void OnAttach() override
+	{
+		DSMGINE_VERBOSE("OnAttach");
+	}
+
+	virtual void OnDetach() override
+	{
+		DSMGINE_VERBOSE("OnDetach");
+	}
+
+	virtual void OnUpdate(float ts) override
+	{
+		DSMGINE_VERBOSE("OnUpdate");
+	}
+};
+
 class DSMgerous : public DSMgine::Application
 {
 public:
 	DSMgerous()
 	{
-		DSMGINE_VERBOSE("Hello!");
 	}
 
 	virtual ~DSMgerous() override
 	{
-		DSMGINE_VERBOSE("Goodbye!");
+	}
+
+	virtual void OnInit() override
+	{
+		PushLayer(new GameLayer());
 	}
 };
 
