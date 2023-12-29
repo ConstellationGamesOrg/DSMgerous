@@ -7,12 +7,12 @@ class Sandbox : public DSMgine::Application
 public:
 	Sandbox()
 	{
-		std::cout << "Hello!\n";
+		DSMGINE_VERBOSE("Hello!");
 	}
 
 	virtual ~Sandbox() override
 	{
-		std::cout << "Goodbye!\n";
+		DSMGINE_VERBOSE("Goodbye!");
 	}
 };
 

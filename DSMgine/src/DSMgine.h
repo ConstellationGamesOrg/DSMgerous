@@ -2,6 +2,7 @@
 #pragma once
 
 #include "DSMgine/Application.h"
+#include "DSMgine/Log.h"
 
 // ---Entry Point------------
 #include "DSMgine/EntryPoint.hpp"

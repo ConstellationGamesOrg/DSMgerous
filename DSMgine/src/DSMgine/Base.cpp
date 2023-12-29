@@ -1,25 +1,22 @@
 #include "DSMgine/Base.h"
+#include "DSMgine/Log.h"
 
 #define DSMGINE_BUILD_ID "v0.1.0"
-
-#include <iostream> // TMP!
 
 namespace DSMgine
 {
 	void InitializeCore()
 	{
-		// TODO: Logger
+		DSMgine::Log::Init();
 
-		//DSMgine::Log::Init();
-
-		std::cout << "DSMgine " << DSMGINE_BUILD_ID << '\n';
-		std::cout << "Initializing...\n";
+		DSMGINE_CORE_VERBOSE("DSMgine " << DSMGINE_BUILD_ID);
+		DSMGINE_CORE_VERBOSE("Initializing...");
 	}
 
 	void ShutdownCore()
 	{
-		std::cout << "Shutting down...\n";
+		DSMGINE_CORE_VERBOSE("Shutting down...");
 
-		//DSMgine::Log::Shutdown();
+		DSMgine::Log::Shutdown();
 	}
 }
