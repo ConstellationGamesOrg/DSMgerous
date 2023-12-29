@@ -24,7 +24,12 @@ public:
 
 	virtual void OnUpdate(float ts) override
 	{
-		DSMGINE_VERBOSE("OnUpdate");
+		//DSMGINE_VERBOSE("OnUpdate");
+	}
+
+	virtual void OnEvent(DSMgine::Event& event) override
+	{
+		DSMGINE_VERBOSE(event.ToString());
 	}
 };
 
@@ -42,6 +47,10 @@ public:
 	virtual void OnInit() override
 	{
 		PushLayer(new GameLayer());
+	}
+
+	virtual void OnShutdown() override
+	{
 	}
 };
 
