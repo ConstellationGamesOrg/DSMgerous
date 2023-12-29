@@ -1,5 +1,5 @@
 -- premake5.lua
-workspace "PewPewGame"
+workspace "DSMgerous"
 	architecture "x64"
 	configurations { "Debug", "Release", "Dist" }
 	startproject "DSMgerous"
