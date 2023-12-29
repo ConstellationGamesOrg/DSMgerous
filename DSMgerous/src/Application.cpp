@@ -1,16 +1,14 @@
 #include <DSMgine.h>
 
-#include <iostream>
-
-class Sandbox : public DSMgine::Application
+class DSMgerous : public DSMgine::Application
 {
 public:
-	Sandbox()
+	DSMgerous()
 	{
 		DSMGINE_VERBOSE("Hello!");
 	}
 
-	virtual ~Sandbox() override
+	virtual ~DSMgerous() override
 	{
 		DSMGINE_VERBOSE("Goodbye!");
 	}
@@ -18,5 +16,5 @@ public:
 
 DSMgine::Application* DSMgine::CreateApplication()
 {
-	return new Sandbox();
+	return new DSMgerous();
 }
