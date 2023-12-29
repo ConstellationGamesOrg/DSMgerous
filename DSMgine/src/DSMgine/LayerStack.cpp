@@ -1,5 +1,7 @@
 #include "DSMgine/LayerStack.h"
 
+#include <algorithm>
+
 namespace DSMgine
 {
 	LayerStack::LayerStack()
