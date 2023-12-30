@@ -1,5 +1,8 @@
 #include "DSMgine/Application.h"
 
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
+
 namespace DSMgine
 {
 	Application::Application()
@@ -13,11 +16,43 @@ namespace DSMgine
 	void Application::Run()
 	{
 		OnInit();
+
+		glfwInit();
+		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 2);
+		glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+
+		GLFWwindow* window = glfwCreateWindow(800, 600, "DSMgine", nullptr, nullptr);
+		if (window == nullptr)
+		{
+			DSMGINE_CORE_VERBOSE("Failed to create GLFW window");
+			glfwTerminate();
+			return;
+		}
+		glfwMakeContextCurrent(window);
+
+		if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
+		{
+			DSMGINE_CORE_VERBOSE("Failed to initialize GLAD");
+			return;
+		}
+
 		while (m_Running)
 		{
+			glClearColor(1.0f, 0.0f, 0.54901960784f, 1.0f);
+			glClear(GL_COLOR_BUFFER_BIT);
+
 			for (Layer* layer : m_LayerStack)
 				layer->OnUpdate(0.0f);
+
+			glViewport(0, 0, 800, 600);
+
+			glfwSwapBuffers(window);
+			glfwPollEvents();
 		}
+
+		glfwTerminate();
+
 		OnShutdown();
 	}
 

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "DSMgine/Base.h"
+#include "DSMgine/Log.h"
 #include "DSMgine/LayerStack.h"
 
 #include "DSMgine/Event/Event.h"

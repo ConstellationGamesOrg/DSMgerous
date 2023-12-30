@@ -14,12 +14,12 @@ public:
 
 	virtual void OnAttach() override
 	{
-		DSMGINE_VERBOSE("OnAttach");
+		DSMGINE_VERBOSE("GameLayer::OnAttach");
 	}
 
 	virtual void OnDetach() override
 	{
-		DSMGINE_VERBOSE("OnDetach");
+		DSMGINE_VERBOSE("GameLayer::OnDetach");
 	}
 
 	virtual void OnUpdate(float ts) override

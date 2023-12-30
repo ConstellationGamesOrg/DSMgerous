@@ -1,0 +1,4 @@
+[submodule "DSMgine/vendor/glfw"]
+	path = DSMgine/vendor/glfw
+	url = https://github.com/CMDR-JohnAlex/glfw.git
+	branch = 3.3-stable

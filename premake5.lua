@@ -22,5 +22,6 @@ group "Core"
 group ""
 
 group "Dependencies"
-
+	include "DSMgine/vendor/glad/premake5.lua"
+	include "DSMgine/vendor/glfw/premake5.lua"
 group ""

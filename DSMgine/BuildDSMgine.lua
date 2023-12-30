@@ -22,11 +22,15 @@ project "DSMgine"
 	includedirs
 	{
 		"src",
-		"vendor"
+		"vendor",
+		"vendor/glad/include",
+		"vendor/glfw/include"
 	}
 
 	links
 	{
+		"glad",
+		"glfw"
 	}
 
 	postbuildcommands
@@ -72,7 +76,17 @@ project "DSMgine"
 	filter "system:linux"
 
 		links
-		{
+		{	
+			"GL",
+			"X11",
+			"Xi",
+			"Xrandr",
+			"Xxf86vm",
+			"Xinerama",
+			"Xcursor",
+			"rt",
+			"m",
+			"pthread"
 		}
 
 		defines
