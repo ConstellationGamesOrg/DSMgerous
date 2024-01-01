@@ -38,7 +38,6 @@ namespace DSMgine
 		m_Data.IconPath = properties.IconPath;
 		m_Data.Width = properties.Width;
 		m_Data.Height = properties.Height;
-		LoadIcon(m_Data.IconPath);
 
 		DSMGINE_CORE_INFO("Creating window " << m_Data.Title << " (" << m_Data.Width << ", " << m_Data.Height << ")");
 
@@ -67,6 +66,7 @@ namespace DSMgine
 		*/
 
 		glfwMakeContextCurrent(m_Window);
+		LoadIcon(m_Data.IconPath);
 		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
 		if (!status)
 			DSMGINE_CORE_ERROR("Failed to initialize glad!");
