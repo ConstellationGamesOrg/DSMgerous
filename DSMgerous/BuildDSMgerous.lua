@@ -73,6 +73,18 @@ project "DSMgerous"
 
 		links
 		{
+			"glad",
+			"glfw",
+			"GL",
+			"X11",
+			"Xi",
+			"Xrandr",
+			"Xxf86vm",
+			"Xinerama",
+			"Xcursor",
+			"rt",
+			"m",
+			"pthread"
 		}
 
 		defines

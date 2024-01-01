@@ -76,7 +76,9 @@ project "DSMgine"
 	filter "system:linux"
 
 		links
-		{	
+		{
+			"glad",
+			"glfw",
 			"GL",
 			"X11",
 			"Xi",
