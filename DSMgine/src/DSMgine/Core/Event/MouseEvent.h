@@ -1,6 +1,6 @@
 #pragma once
 
-#include "DSMgine/Event/Event.h"
+#include "DSMgine/Core/Event/Event.h"
 
 namespace DSMgine
 {

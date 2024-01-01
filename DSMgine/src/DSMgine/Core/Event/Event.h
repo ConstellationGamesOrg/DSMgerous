@@ -1,6 +1,6 @@
 #pragma once
 
-#include "DSMgine/Base.h"
+#include "DSMgine/Core/Base.h"
 
 #include <sstream>
 #include <functional>

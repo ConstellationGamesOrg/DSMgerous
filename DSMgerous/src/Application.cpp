@@ -24,7 +24,7 @@ public:
 
 	virtual void OnUpdate(float ts) override
 	{
-		//DSMGINE_VERBOSE("OnUpdate");
+		//DSMGINE_VERBOSE("GameLayer::OnUpdate");
 	}
 
 	virtual void OnEvent(DSMgine::Event& event) override
@@ -40,7 +40,7 @@ public:
 	{
 	}
 
-	virtual ~DSMgerous() override
+	virtual ~DSMgerous()
 	{
 	}
 

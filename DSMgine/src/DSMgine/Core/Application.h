@@ -1,13 +1,14 @@
 #pragma once
 
-#include "DSMgine/Base.h"
-#include "DSMgine/Log.h"
-#include "DSMgine/LayerStack.h"
+#include "DSMgine/Core/Base.h"
+#include "DSMgine/Core/Log.h"
+#include "DSMgine/Core/LayerStack.h"
+#include "DSMgine/Core/Window.h"
 
-#include "DSMgine/Event/Event.h"
-#include "DSMgine/Event/ApplicationEvent.h"
-#include "DSMgine/Event/KeyEvent.h"
-#include "DSMgine/Event/MouseEvent.h"
+#include "DSMgine/Core/Event/Event.h"
+#include "DSMgine/Core/Event/ApplicationEvent.h"
+#include "DSMgine/Core/Event/KeyEvent.h"
+#include "DSMgine/Core/Event/MouseEvent.h"
 
 namespace DSMgine
 {
@@ -28,12 +29,16 @@ namespace DSMgine
 		void PushLayer(Layer* layer);
 		void PushOverlay(Layer* overlay);
 
+		inline Window& GetWindow() { return *m_Window; }
+
 	private:
 		bool OnWindowResize(WindowResizeEvent& event);
 		bool OnWindowClose(WindowCloseEvent& event);
 
 	private:
+		std::unique_ptr<Window> m_Window;
 		bool m_Running = true;
+		bool m_Minimized = false;
 		LayerStack m_LayerStack;
 	};
 

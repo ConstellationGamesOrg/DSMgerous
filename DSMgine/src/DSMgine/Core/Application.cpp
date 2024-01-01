@@ -1,4 +1,4 @@
-#include "DSMgine/Application.h"
+#include "DSMgine/Core/Application.h"
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
@@ -7,6 +7,9 @@ namespace DSMgine
 {
 	Application::Application()
 	{
+		m_Window = std::unique_ptr<Window>(Window::Create(WindowProperties("DSMgine", "assets/tmp_icon.png", 1280, 720)));
+		m_Window->SetEventCallback(BIND_EVENT_FN(Application, OnEvent));
+		m_Window->SetVSync(true);
 	}
 
 	Application::~Application()
@@ -17,26 +20,6 @@ namespace DSMgine
 	{
 		OnInit();
 
-		glfwInit();
-		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 2);
-		glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-
-		GLFWwindow* window = glfwCreateWindow(800, 600, "DSMgine", nullptr, nullptr);
-		if (window == nullptr)
-		{
-			DSMGINE_CORE_VERBOSE("Failed to create GLFW window");
-			glfwTerminate();
-			return;
-		}
-		glfwMakeContextCurrent(window);
-
-		if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
-		{
-			DSMGINE_CORE_VERBOSE("Failed to initialize GLAD");
-			return;
-		}
-
 		while (m_Running)
 		{
 			glClearColor(1.0f, 0.0f, 0.54901960784f, 1.0f);
@@ -45,9 +28,7 @@ namespace DSMgine
 			for (Layer* layer : m_LayerStack)
 				layer->OnUpdate(0.0f);
 
-			glViewport(0, 0, 800, 600);
-
-			glfwSwapBuffers(window);
+			glfwSwapBuffers(static_cast<GLFWwindow*>(m_Window->GetNativeWindow()));
 			glfwPollEvents();
 		}
 
@@ -84,6 +65,15 @@ namespace DSMgine
 
 	bool Application::OnWindowResize(WindowResizeEvent& event)
 	{
+		int width = event.GetWidth(), height = event.GetHeight();
+		if (width == 0 || height == 0)
+		{
+			m_Minimized = true;
+			return false;
+		}
+		m_Minimized = false;
+		glViewport(0, 0, width, height);
+
 		return false;
 	}
 

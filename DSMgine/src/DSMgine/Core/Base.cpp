@@ -1,5 +1,5 @@
-#include "DSMgine/Base.h"
-#include "DSMgine/Log.h"
+#include "DSMgine/Core/Base.h"
+#include "DSMgine/Core/Log.h"
 
 #define DSMGINE_BUILD_ID "v0.1.0"
 

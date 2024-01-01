@@ -1,4 +1,4 @@
-#include "DSMgine/Log.h"
+#include "DSMgine/Core/Log.h"
 
 namespace DSMgine
 {
