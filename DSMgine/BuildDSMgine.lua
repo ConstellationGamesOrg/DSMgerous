@@ -35,8 +35,6 @@ project "DSMgine"
 
 	postbuildcommands
 	{
-		'{COPY} "../DSMgine/assets" "%{cfg.targetdir}/assets"', -- We copy the engine's assets first,
-		'{COPY} "assets" "%{cfg.targetdir}/assets"'             -- so the game's assets override any duplicated files.
 	}
 
 	filter "configurations:Debug"
