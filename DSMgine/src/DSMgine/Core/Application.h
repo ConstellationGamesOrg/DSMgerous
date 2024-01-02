@@ -10,6 +10,8 @@
 #include "DSMgine/Core/Event/KeyEvent.h"
 #include "DSMgine/Core/Event/MouseEvent.h"
 
+#include <memory>
+
 namespace DSMgine
 {
 	class Application
