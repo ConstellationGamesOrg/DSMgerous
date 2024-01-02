@@ -1,3 +1,5 @@
+#include <DSMginePCH.h>
+
 #include "DSMgine/Core/Log.h"
 
 namespace DSMgine

@@ -8,8 +8,8 @@ project "DSMgine"
 	targetdir ("../bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("../bin-int/" .. outputdir .. "/%{prj.name}")
 
-	-- pchheader "DSMginePCH.hpp"
-	-- pchsource "DSMgine/src/DSMginePCH.cpp"
+	pchheader "DSMginePCH.h"
+	pchsource "src/DSMginePCH.cpp"
 
 	files
 	{

@@ -1,10 +1,11 @@
+#include <DSMginePCH.h>
+
 #include <glad/glad.h> // We need to include glad before glfw
 #include "DSMgine/Platform/glfw/GlfwWindow.h"
 
 #include "DSMgine/Core/Event/ApplicationEvent.h"
 #include "DSMgine/Core/Event/KeyEvent.h"
 #include "DSMgine/Core/Event/MouseEvent.h"
-#include "DSMgine/Core/Log.h"
 
 #define STB_IMAGE_IMPLEMENTATION
 #include <stb/stb_image.h>

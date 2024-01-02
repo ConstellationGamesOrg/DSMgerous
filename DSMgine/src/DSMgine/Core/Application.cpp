@@ -1,3 +1,5 @@
+#include <DSMginePCH.h>
+
 #include "DSMgine/Core/Application.h"
 
 #include <glad/glad.h>

@@ -1,6 +1,6 @@
-#include "DSMgine/Core/LayerStack.h"
+#include <DSMginePCH.h>
 
-#include <algorithm>
+#include "DSMgine/Core/LayerStack.h"
 
 namespace DSMgine
 {
