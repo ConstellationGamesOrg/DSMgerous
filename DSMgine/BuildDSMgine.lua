@@ -30,7 +30,8 @@ project "DSMgine"
 	links
 	{
 		"glad",
-		"glfw"
+		"glfw",
+		"ImGui"
 	}
 
 	postbuildcommands
@@ -78,6 +79,7 @@ project "DSMgine"
 		{
 			"glad",
 			"glfw",
+			"ImGui",
 			"GL",
 			"X11",
 			"Xi",
