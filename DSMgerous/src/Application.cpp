@@ -1,5 +1,7 @@
 #include <DSMgine.h>
 
+#include "DSMgine/ImGui/ImGuiLayer.h"
+
 class GameLayer : public DSMgine::Layer
 {
 public:
@@ -47,6 +49,7 @@ public:
 	virtual void OnInit() override
 	{
 		PushLayer(new GameLayer());
+		PushOverlay(new DSMgine::ImGuiLayer());
 	}
 
 	virtual void OnShutdown() override
