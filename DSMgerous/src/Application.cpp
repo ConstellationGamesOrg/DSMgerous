@@ -56,12 +56,17 @@ public:
 		ImGui::Text("Window width %d", DSMgine::Application::Get().GetWindow().GetWidth());
 		ImGui::Text("Window height %d", DSMgine::Application::Get().GetWindow().GetHeight());
 		ImGui::Text("Window position %d, %d", DSMgine::Application::Get().GetWindow().GetWindowPosition().first, DSMgine::Application::Get().GetWindow().GetWindowPosition().second);
+		ImGui::Dummy(ImVec2(0.0f, 10.0f));
+		ImGui::Text("Hover over this ->");
+		ImGui::SameLine();
 		ImGuiShowHelpMarker(
 			"In the ImGui docking branch, you can dock any window into another even without an ImGui::DockSpace(). Test it!" "\n"
 		);
 		ImGui::End();
 
 		ImGui::Begin("EditorLayer1");
+		static float color[4] = { 0.0f, 0.0f, 0.0f, 0.0f };
+		ImGui::ColorPicker4("Color", (float*)&color);
 		ImGuiShowHelpMarker(
 			"In the ImGui docking branch, you can dock any window into another even without an ImGui::DockSpace(). Test it!" "\n"
 		);
