@@ -39,6 +39,7 @@ namespace DSMgine
 
 	private:
 		GLFWwindow* m_Window;
+		GLFWcursor* m_MouseCursors[9] = { 0 };
 
 		struct WindowData
 		{
