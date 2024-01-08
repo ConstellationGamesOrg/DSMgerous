@@ -7,9 +7,9 @@
 
 namespace DSMgine
 {
-	Application::Application()
+	Application::Application(const ApplicationProperties& properties)
 	{
-		m_Window = std::unique_ptr<Window>(Window::Create(WindowProperties("DSMgine", "assets/tmp_icon.png", 1280, 720)));
+		m_Window = std::unique_ptr<Window>(Window::Create(WindowProperties(properties.Name, properties.IconPath, properties.WindowWidth, properties.WindowHeight)));
 		m_Window->SetEventCallback(BIND_EVENT_FN(Application, OnEvent));
 		m_Window->SetVSync(true);
 	}

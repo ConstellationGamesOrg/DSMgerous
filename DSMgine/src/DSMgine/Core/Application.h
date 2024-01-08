@@ -14,10 +14,17 @@
 
 namespace DSMgine
 {
+	struct ApplicationProperties
+	{
+		std::string Name;
+		std::string IconPath;
+		uint32_t WindowWidth, WindowHeight;
+	};
+
 	class Application
 	{
 	public:
-		Application();
+		Application(const ApplicationProperties& properties = { "DSMgine", "", 1280, 720});
 		virtual ~Application();
 
 		void Run();
