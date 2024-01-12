@@ -32,7 +32,8 @@ project "DSMgine"
 	{
 		"glad",
 		"glfw",
-		"ImGui"
+		"ImGui",
+		"imgui"
 	}
 
 	postbuildcommands

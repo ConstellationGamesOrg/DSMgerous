@@ -26,7 +26,9 @@ project "DSMgerous"
 
 	links
 	{
-		"DSMgine"
+		"DSMgine",
+		"ImGui",
+		"imgui"
 	}
 
 	postbuildcommands
