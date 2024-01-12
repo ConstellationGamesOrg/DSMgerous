@@ -9,6 +9,8 @@
 #include "DSMgine/Core/Event/KeyEvent.h"
 #include "DSMgine/Core/Event/MouseEvent.h"
 
+#include <ImGui/imgui.h>
+
 // ---Entry Point------------
 #include "DSMgine/EntryPoint.hpp"
 // --------------------------

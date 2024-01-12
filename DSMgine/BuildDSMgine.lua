@@ -24,13 +24,15 @@ project "DSMgine"
 		"src",
 		"vendor",
 		"vendor/glad/include",
-		"vendor/glfw/include"
+		"vendor/glfw/include",
+		"vendor/ImGui"
 	}
 
 	links
 	{
 		"glad",
-		"glfw"
+		"glfw",
+		"ImGui"
 	}
 
 	postbuildcommands
@@ -78,6 +80,8 @@ project "DSMgine"
 		{
 			"glad",
 			"glfw",
+			"ImGui",
+			"imgui",
 			"GL",
 			"X11",
 			"Xi",
