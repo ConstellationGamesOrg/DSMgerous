@@ -82,7 +82,8 @@ public:
 class DSMgerous : public DSMgine::Application
 {
 public:
-	DSMgerous()
+	DSMgerous(const DSMgine::ApplicationProperties& properties)
+		: Application(properties)
 	{
 	}
 
@@ -102,5 +103,5 @@ public:
 
 DSMgine::Application* DSMgine::CreateApplication()
 {
-	return new DSMgerous();
+	return new DSMgerous({ "DSMgerous", "assets/tmp_icon.png", 1600, 900 });
 }
