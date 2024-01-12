@@ -27,8 +27,7 @@ project "DSMgerous"
 	links
 	{
 		"DSMgine",
-		"ImGui",
-		"imgui"
+		"ImGui"
 	}
 
 	postbuildcommands
@@ -78,6 +77,8 @@ project "DSMgerous"
 		{
 			"glad",
 			"glfw",
+			"ImGui",
+			"imgui",
 			"GL",
 			"X11",
 			"Xi",
