@@ -2,3 +2,7 @@
 	path = DSMgine/vendor/glfw
 	url = https://github.com/CMDR-JohnAlex/glfw.git
 	branch = 3.3-stable
+[submodule "DSMgine/vendor/ImGui"]
+	path = DSMgine/vendor/ImGui
+	url = https://github.com/CMDR-JohnAlex/ImGui.git
+	branch = docking

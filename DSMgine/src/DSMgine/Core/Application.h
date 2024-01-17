@@ -10,6 +10,8 @@
 #include "DSMgine/Core/Event/KeyEvent.h"
 #include "DSMgine/Core/Event/MouseEvent.h"
 
+#include "DSMgine/ImGui/ImGuiLayer.h"
+
 #include <memory>
 
 namespace DSMgine
@@ -33,12 +35,16 @@ namespace DSMgine
 		virtual void OnShutdown() {};
 		virtual void OnUpdate(float ts) {};
 
+		void RenderImGui();
+
 		virtual void OnEvent(Event& event);
 
 		void PushLayer(Layer* layer);
 		void PushOverlay(Layer* overlay);
 
 		inline Window& GetWindow() { return *m_Window; }
+
+		static inline Application& Get() { return *s_Instance; }
 
 	private:
 		bool OnWindowResize(WindowResizeEvent& event);
@@ -49,6 +55,9 @@ namespace DSMgine
 		bool m_Running = true;
 		bool m_Minimized = false;
 		LayerStack m_LayerStack;
+		ImGuiLayer* m_ImGuiLayer;
+
+		static Application* s_Instance;
 	};
 
 	// Implemented by CLIENT
