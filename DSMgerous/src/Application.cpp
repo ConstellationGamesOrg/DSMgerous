@@ -57,5 +57,5 @@ public:
 
 DSMgine::Application* DSMgine::CreateApplication()
 {
-	return new DSMgerous({ "DSMgerous", "assets/tmp_icon.png", 1600, 900 });
+	return new DSMgerous({ "DSMgerous", "assets/tmp_icon2.png", 1280, 720 });
 }
