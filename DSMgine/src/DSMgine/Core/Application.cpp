@@ -8,7 +8,7 @@
 namespace DSMgine
 {
 	Application* Application::s_Instance = nullptr;
-	
+
 	Application::Application(const ApplicationProperties& properties)
 	{
 		s_Instance = this;
