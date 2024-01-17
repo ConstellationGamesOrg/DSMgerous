@@ -1,9 +1,8 @@
 #pragma once
 
-#include <utility>
+#include "DSMgine/Core/KeyCodes.h"
 
-typedef uint16_t KeyCode; // TODO: Keycodes
-typedef uint16_t MouseButton; // TODO: Mousebuttons
+#include <utility>
 
 namespace DSMgine
 {

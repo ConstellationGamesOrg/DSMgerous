@@ -40,7 +40,7 @@ public:
 	virtual void OnUpdate(float ts) override
 	{
 		//DSMGINE_VERBOSE("GameLayer::OnUpdate");
-		DSMGINE_VERBOSE(DSMgine::Input::IsKeyPressed(32));
+		//DSMGINE_VERBOSE(DSMgine::Input::IsKeyPressed(DSMGINE_KEY_SPACE));
 	}
 
 	virtual void OnImGuiRender() override
