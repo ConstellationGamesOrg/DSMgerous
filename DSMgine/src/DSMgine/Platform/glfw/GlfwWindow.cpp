@@ -2,6 +2,7 @@
 
 #include <glad/glad.h> // We need to include glad before glfw
 #include "DSMgine/Platform/glfw/GlfwWindow.h"
+#include "DSMgine/Platform/glfw/GlfwKeyCodes.h"
 
 #include "DSMgine/Core/Event/ApplicationEvent.h"
 #include "DSMgine/Core/Event/KeyEvent.h"
@@ -102,19 +103,19 @@ namespace DSMgine
 			{
 			case GLFW_PRESS:
 			{
-				KeyPressedEvent event(key, 0);
+				KeyPressedEvent event(ToDSMgineKeyCode(key), 0);
 				data.EventCallback(event);
 				break;
 			}
 			case GLFW_RELEASE:
 			{
-				KeyReleasedEvent event(key);
+				KeyReleasedEvent event(ToDSMgineKeyCode(key));
 				data.EventCallback(event);
 				break;
 			}
 			case GLFW_REPEAT:
 			{
-				KeyPressedEvent event(key, 1);
+				KeyPressedEvent event(ToDSMgineKeyCode(key), 1);
 				data.EventCallback(event);
 				break;
 			}
@@ -137,13 +138,13 @@ namespace DSMgine
 			{
 			case GLFW_PRESS:
 			{
-				MouseButtonPressedEvent event(button);
+				MouseButtonPressedEvent event(ToDSMgineMouseButton(button));
 				data.EventCallback(event);
 				break;
 			}
 			case GLFW_RELEASE:
 			{
-				MouseButtonReleasedEvent event(button);
+				MouseButtonReleasedEvent event(ToDSMgineMouseButton(button));
 				data.EventCallback(event);
 				break;
 			}
@@ -222,7 +223,7 @@ namespace DSMgine
 		glfwSetCursor(m_Window, m_MouseCursors[imgui_cursor] ? m_MouseCursors[imgui_cursor] : m_MouseCursors[ImGuiMouseCursor_Arrow]);
 		glfwSetInputMode(m_Window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
 
-		float time = glfwGetTime();
+		float time = static_cast<float>(glfwGetTime());
 		float delta = time - m_LastFrameTime;
 		m_LastFrameTime = time;
 	}

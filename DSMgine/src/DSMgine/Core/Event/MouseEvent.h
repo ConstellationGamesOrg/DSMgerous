@@ -56,25 +56,25 @@ namespace DSMgine
 	class MouseButtonEvent : public Event
 	{
 	public:
-		inline int GetMouseButton() const { return m_Button; }
+		inline MouseButton GetMouseButton() const { return m_MouseButton; }
 
 		EVENT_CLASS_CATEGORY(EventCategoryMouse | EventCategoryInput);
 
 	protected:
-		MouseButtonEvent(int button)
-			: m_Button(button)
+		MouseButtonEvent(MouseButton mouseButton)
+			: m_MouseButton(mouseButton)
 		{
 		}
 		virtual ~MouseButtonEvent() = default;
 
-		int m_Button;
+		MouseButton m_MouseButton;
 	};
 
 	class MouseButtonPressedEvent : public MouseButtonEvent
 	{
 	public:
-		MouseButtonPressedEvent(int button)
-			: MouseButtonEvent(button)
+		MouseButtonPressedEvent(MouseButton mouseButton)
+			: MouseButtonEvent(mouseButton)
 		{
 		}
 		virtual ~MouseButtonPressedEvent() = default;
@@ -84,7 +84,7 @@ namespace DSMgine
 		std::string ToString() const override
 		{
 			std::stringstream ss;
-			ss << "MouseButtonPressedEvent: " << m_Button;
+			ss << "MouseButtonPressedEvent: " << m_MouseButton;
 			return ss.str();
 		}
 
@@ -97,8 +97,8 @@ namespace DSMgine
 	class MouseButtonReleasedEvent : public MouseButtonEvent
 	{
 	public:
-		MouseButtonReleasedEvent(int button)
-			: MouseButtonEvent(button)
+		MouseButtonReleasedEvent(MouseButton mouseButton)
+			: MouseButtonEvent(mouseButton)
 		{
 		}
 		virtual ~MouseButtonReleasedEvent() = default;
@@ -106,7 +106,7 @@ namespace DSMgine
 		std::string ToString() const override
 		{
 			std::stringstream ss;
-			ss << "MouseButtonReleasedEvent: " << m_Button;
+			ss << "MouseButtonReleasedEvent: " << m_MouseButton;
 			return ss.str();
 		}
 

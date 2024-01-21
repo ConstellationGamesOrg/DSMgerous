@@ -2,30 +2,33 @@
 
 #include "DSMgine/Core/Event/Event.h"
 
+#include "DSMgine/Core/KeyCodes.h"
+
 namespace DSMgine
 {
 	class KeyEvent : public Event
 	{
 	public:
-		inline int GetKeyCode() const { return m_KeyCode; }
+		inline KeyCode GetKeyCode() const { return m_KeyCode; }
 
 		EVENT_CLASS_CATEGORY(EventCategoryKeyboard | EventCategoryInput);
 
 	protected:
-		KeyEvent(int keycode)
-			: m_KeyCode(keycode)
+		KeyEvent() = default;
+		KeyEvent(KeyCode keyCode)
+			: m_KeyCode(keyCode)
 		{
 		}
 		virtual ~KeyEvent() = default;
 
-		int m_KeyCode;
+		KeyCode m_KeyCode;
 	};
 
 	class KeyPressedEvent : public KeyEvent
 	{
 	public:
-		KeyPressedEvent(int keycode, int repeatCount)
-			: KeyEvent(keycode), m_RepeatCount(repeatCount)
+		KeyPressedEvent(KeyCode keyCode, int repeatCount)
+			: KeyEvent(keyCode), m_RepeatCount(repeatCount)
 		{
 		}
 		virtual ~KeyPressedEvent() = default;
@@ -48,8 +51,8 @@ namespace DSMgine
 	class KeyReleasedEvent : public KeyEvent
 	{
 	public:
-		KeyReleasedEvent(int keycode)
-			: KeyEvent(keycode)
+		KeyReleasedEvent(KeyCode keyCode)
+			: KeyEvent(keyCode)
 		{
 		}
 		virtual ~KeyReleasedEvent() = default;
@@ -67,18 +70,22 @@ namespace DSMgine
 	class KeyTypedEvent : public KeyEvent
 	{
 	public:
-		KeyTypedEvent(int keycode)
-			: KeyEvent(keycode)
+		KeyTypedEvent(int keyCode)
+			: KeyEvent()
 		{
+			m_CharCode = static_cast<int>(keyCode);
 		}
 
 		std::string ToString() const override
 		{
 			std::stringstream ss;
-			ss << "KeyTypedEvent: " << m_KeyCode;
+			ss << "KeyTypedEvent: " << m_CharCode;
 			return ss.str();
 		}
 
-		EVENT_CLASS_TYPE(KeyTyped)
+		EVENT_CLASS_TYPE(KeyTyped);
+
+	private:
+		int m_CharCode;
 	};
 }

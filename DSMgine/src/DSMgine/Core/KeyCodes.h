@@ -152,6 +152,18 @@ namespace DSMgine
 		Right = Button1,
 		Middle = Button2
 	} Button;
+
+	inline std::ostream& operator<<(std::ostream& os, KeyCode keyCode)
+	{
+		os << static_cast<int32_t>(keyCode);
+		return os;
+	}
+
+	inline std::ostream& operator<<(std::ostream& os, MouseButton mouseButton)
+	{
+		os << static_cast<int32_t>(mouseButton);
+		return os;
+	}
 }
 
 /* Keyboard */

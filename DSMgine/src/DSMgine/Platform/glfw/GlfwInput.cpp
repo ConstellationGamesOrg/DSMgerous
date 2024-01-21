@@ -3,6 +3,7 @@
 #include "DSMgine/Core/Input.h"
 #include "DSMgine/Core/Application.h"
 #include "GlfwWindow.h"
+#include "GlfwKeyCodes.h"
 
 #include <GLFW/glfw3.h>
 
@@ -11,7 +12,7 @@ namespace DSMgine
 	bool Input::IsKeyPressed(KeyCode keyCode)
 	{
 		auto& window = static_cast<GlfwWindow&>(Application::Get().GetWindow());
-		auto state = glfwGetKey(static_cast<GLFWwindow*>(window.GetNativeWindow()), static_cast<int32_t>(keyCode));
+		auto state = glfwGetKey(static_cast<GLFWwindow*>(window.GetNativeWindow()), ToGlfwKeyCode(keyCode));
 		return state == GLFW_PRESS || state == GLFW_REPEAT;
 	}
 
@@ -19,7 +20,7 @@ namespace DSMgine
 	{
 		auto& window = static_cast<GlfwWindow&>(Application::Get().GetWindow());
 
-		auto state = glfwGetMouseButton(static_cast<GLFWwindow*>(window.GetNativeWindow()), static_cast<int32_t>(button));
+		auto state = glfwGetMouseButton(static_cast<GLFWwindow*>(window.GetNativeWindow()), ToGlfwMouseButton(button));
 		return state == GLFW_PRESS;
 	}
 
