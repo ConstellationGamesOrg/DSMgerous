@@ -8,7 +8,7 @@ namespace DSMgine
 	{
 		DSMgine::Log::Init();
 
-		DSMGINE_CORE_VERBOSE("DSMgine " << DSMGINE_BUILD_ID);
+		DSMGINE_CORE_VERBOSE("DSMgine ", DSMGINE_BUILD_ID);
 		DSMGINE_CORE_VERBOSE("Initializing...");
 	}
 

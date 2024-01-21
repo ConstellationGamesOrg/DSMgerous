@@ -6,3 +6,7 @@
 	path = DSMgine/vendor/ImGui
 	url = https://github.com/CMDR-JohnAlex/ImGui.git
 	branch = docking
+[submodule "DSMgine/vendor/SimpleLogger3.0"]
+	path = DSMgine/vendor/SimpleLogger3.0
+	url = https://github.com/CMDR-JohnAlex/SimpleLogger3.0.git
+	branch = dev

@@ -451,5 +451,8 @@ FodyWeavers.xsd
 **.vcxproj.user
 **.csproj
 
-#aalalal
+# Make
 Makefile
+
+# Log files
+**.log

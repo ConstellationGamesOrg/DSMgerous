@@ -17,7 +17,7 @@ namespace DSMgine
 {
 	static void GLFWErrorCallback(int error, const char* description)
 	{
-		DSMGINE_CORE_ERROR("GLFW Error (" << error << ") : " << description);
+		DSMGINE_CORE_ERROR("GLFW Error (", error, ") : ", description);
 	}
 
 	static bool s_GLFWInitialized = false;
@@ -43,7 +43,7 @@ namespace DSMgine
 		m_Data.Width = properties.Width;
 		m_Data.Height = properties.Height;
 
-		DSMGINE_CORE_INFO("Creating window " << m_Data.Title << " (" << m_Data.Width << ", " << m_Data.Height << ")");
+		DSMGINE_CORE_INFO("Creating window ", m_Data.Title, " (", m_Data.Width, ", ", m_Data.Height, ")");
 
 		if (!s_GLFWInitialized)
 		{
