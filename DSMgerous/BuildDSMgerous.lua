@@ -22,7 +22,8 @@ project "DSMgerous"
 		"vendor",
 		"../DSMgine/src",
 		"../DSMgine/vendor",
-		"../DSMgine/vendor/SimpleLogger3.0"
+		"../DSMgine/vendor/SimpleLogger3.0",
+		"../DSMgine/vendor/asio"
 	}
 
 	links

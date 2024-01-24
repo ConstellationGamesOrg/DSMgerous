@@ -26,7 +26,8 @@ project "DSMgine"
 		"vendor/glad/include",
 		"vendor/glfw/include",
 		"vendor/ImGui",
-		"vendor/SimpleLogger3.0"
+		"vendor/SimpleLogger3.0",
+		"vendor/asio/include"
 	}
 
 	links
