@@ -1,6 +1,7 @@
 #pragma once
 
 #include "DSMgine/Renderer/RenderCommandQueue.h"
+#include "DSMgine/Renderer/RendererAPI.h"
 
 namespace DSMgine
 {

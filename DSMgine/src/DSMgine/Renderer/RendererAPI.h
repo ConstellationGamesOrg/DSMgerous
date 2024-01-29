@@ -2,10 +2,19 @@
 
 namespace DSMgine
 {
+	using RendererID = uint32_t;
+
 	enum class RendererAPIType
 	{
 		None,
 		OpenGL
+	};
+
+	enum class PrimitiveType
+	{
+		None,
+		Triangles,
+		Lines
 	};
 
 	class RendererAPI

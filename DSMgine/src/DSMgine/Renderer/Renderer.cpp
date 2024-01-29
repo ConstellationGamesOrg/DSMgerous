@@ -3,7 +3,7 @@
 #include "DSMgine/Renderer/Renderer.h"
 #include "DSMgine/Renderer/RendererAPI.h"
 
-#include "DSMgine/Platform/OpenGL/OpenGLRendererAPI.h"
+#include "DSMgine/Platform/OpenGL/OpenGLRenderer.h"
 
 namespace DSMgine
 {
@@ -14,7 +14,7 @@ namespace DSMgine
 	{
 		switch (RendererAPI::Current())
 		{
-		//case RendererAPIType::None: return new NoneRenderer();
+		case RendererAPIType::None: return nullptr;
 		case RendererAPIType::OpenGL: return new OpenGLRenderer();
 		}
 		DSMGINE_CORE_ASSERT(false, "Unknown RendererAPI");
@@ -40,6 +40,7 @@ namespace DSMgine
 	{
 		s_RendererAPI->Shutdown();
 		delete s_CommandQueue;
+		delete s_RendererAPI;
 	}
 
 	void Renderer::WaitAndRender()

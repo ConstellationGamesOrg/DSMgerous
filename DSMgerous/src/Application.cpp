@@ -68,7 +68,7 @@ public:
 		ImGui::End();
 
 		ImGui::Begin("EditorLayer1");
-		ImGui::ColorPicker4("Color", (float*)&m_ClearColor);
+		ImGui::ColorPicker4("Clear Color", (float*)&m_ClearColor);
 		ImGuiShowHelpMarker(
 			"In the ImGui docking branch, you can dock any window into another even without an ImGui::DockSpace(). Test it!" "\n"
 		);

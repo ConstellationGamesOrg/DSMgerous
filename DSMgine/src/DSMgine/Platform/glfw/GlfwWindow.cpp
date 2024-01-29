@@ -17,7 +17,7 @@ namespace DSMgine
 {
 	static void GLFWErrorCallback(int error, const char* description)
 	{
-		DSMGINE_CORE_ERROR("GLFW Error (", error, ") : ", description);
+		DSMGINE_CORE_ERROR("GLFW Error ({0}) : {1}", error, description);
 	}
 
 	static bool s_GLFWInitialized = false;
@@ -43,7 +43,7 @@ namespace DSMgine
 		m_Data.Width = properties.Width;
 		m_Data.Height = properties.Height;
 
-		DSMGINE_CORE_INFO("Creating window ", m_Data.Title, " (", m_Data.Width, ", ", m_Data.Height, ")");
+		DSMGINE_CORE_INFO("Creating window {0} ({1}, {2})", m_Data.Title, m_Data.Width, m_Data.Height);
 
 		if (!s_GLFWInitialized)
 		{
@@ -53,6 +53,12 @@ namespace DSMgine
 
 			s_GLFWInitialized = true;
 		}
+
+		// TODO: Need some way to know what is the highest supported version of OpenGL. Maybe preprocessor stuff?
+		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 2);
+		glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+		glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 
 		m_Window = glfwCreateWindow(static_cast<int>(m_Data.Width), static_cast<int>(m_Data.Height), m_Data.Title.c_str(), nullptr, nullptr);
 

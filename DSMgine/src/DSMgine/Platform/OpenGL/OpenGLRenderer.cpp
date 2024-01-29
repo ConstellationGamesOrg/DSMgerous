@@ -1,6 +1,6 @@
 #include <DSMginePCH.h>
 
-#include "OpenGLRendererAPI.h"
+#include "OpenGLRenderer.h"
 #include "DSMgine/Renderer/Renderer.h"
 
 #include <glad/glad.h>
@@ -28,7 +28,7 @@ namespace DSMgine
 			{
 				DSMGINE_CORE_ERROR("OpenGL Error {0}", error);
 				error = glGetError();
-	}
+			}
 		});
 	}
 

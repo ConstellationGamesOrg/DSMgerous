@@ -36,18 +36,18 @@ project "DSMgerous"
 	}
 
 	filter "configurations:Debug"
-		defines "DSMGEROUS_BUILD_DEBUG"
+		defines { "DSMGEROUS_BUILD_DEBUG", "DSMGINE_BUILD_DEBUG" }
 		runtime "Debug"
 		symbols "On"
 
 	filter "configurations:Release"
-		defines "DSMGEROUS_BUILD_RELEASE"
+		defines { "DSMGEROUS_BUILD_RELEASE", "DSMGINE_BUILD_RELEASE" }
 		runtime "Release"
 		optimize "On"
 		symbols "On"
 
 	filter "configurations:Dist"
-		defines "DSMGEROUS_BUILD_DIST"
+		defines { "DSMGEROUS_BUILD_DIST", "DSMGINE_BUILD_DIST" }
 		runtime "Release"
 		optimize "On"
 		symbols "Off"
@@ -62,7 +62,8 @@ project "DSMgerous"
 
 		defines
 		{
-			"DSMGEROUS_PLATFORM_WINDOWS"
+			"DSMGEROUS_PLATFORM_WINDOWS",
+			"DSMGINE_PLATFORM_WINDOWS",
 		}
 
 		postbuildcommands
@@ -94,7 +95,8 @@ project "DSMgerous"
 
 		defines
 		{
-			"DSMGEROUS_PLATFORM_LINUX"
+			"DSMGEROUS_PLATFORM_LINUX",
+			"DSMGINE_PLATFORM_LINUX"
 		}
 
 		postbuildcommands

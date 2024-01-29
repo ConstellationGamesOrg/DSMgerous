@@ -13,6 +13,9 @@ workspace "DSMgerous"
 -- Directories
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+-- TODO: Create some global variables here for the engine to give the game things.
+-- Such as any include paths the engine wants the game to have, or preprocessor defines, etc.
+
 group "Game"
 	include "DSMgerous/BuildDSMgerous.lua"
 group ""
