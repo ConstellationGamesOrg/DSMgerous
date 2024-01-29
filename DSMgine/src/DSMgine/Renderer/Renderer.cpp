@@ -17,13 +17,14 @@ namespace DSMgine
 		//case RendererAPIType::None: return new NoneRenderer();
 		case RendererAPIType::OpenGL: return new OpenGLRenderer();
 		}
-		DSMGINE_CORE_ERROR("Unknown RendererAPI");
+		DSMGINE_CORE_ASSERT(false, "Unknown RendererAPI");
 		return nullptr;
 	}
 
 	void DSMgine::RendererAPI::SetAPI(RendererAPIType api)
 	{
 		// NOTE: If called, it must be before InitRendererAPI()
+		DSMGINE_CORE_VERIFY(api == RendererAPIType::OpenGL, "OpenGL is the only supported renderer API")
 		s_CurrentRendererAPI = api;
 	}
 
