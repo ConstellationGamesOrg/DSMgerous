@@ -54,11 +54,17 @@ namespace DSMgine
 			s_GLFWInitialized = true;
 		}
 
-		// TODO: Need some way to know what is the highest supported version of OpenGL. Maybe preprocessor stuff?
-		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 2);
+#ifndef DSMGINE_FORCE_OPENGL_3_2
+		DSMGINE_CORE_INFO("Loading OpenGL 4.5 core");
+		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
+		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 5);
 		glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 		glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+#else
+		DSMGINE_CORE_INFO("Loading OpenGL 3.2 core");
+		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 2);
+#endif
 
 		m_Window = glfwCreateWindow(static_cast<int>(m_Data.Width), static_cast<int>(m_Data.Height), m_Data.Title.c_str(), nullptr, nullptr);
 

@@ -7,10 +7,40 @@
 
 namespace DSMgine
 {
+#ifndef DSMGINE_FORCE_OPENGL_3_2
+	static void OpenGLLogMessage(GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar* message, const void* userParam)
+	{
+		switch (severity)
+		{
+		case GL_DEBUG_SEVERITY_HIGH:
+			DSMGINE_CORE_ERROR("[OpenGL Debug HIGH] {0}", message);
+			DSMGINE_CORE_ASSERT(false, "GL_DEBUG_SEVERITY_HIGH");
+			break;
+		case GL_DEBUG_SEVERITY_MEDIUM:
+			DSMGINE_CORE_WARNING("[OpenGL Debug MEDIUM] {0}", message);
+			break;
+		case GL_DEBUG_SEVERITY_LOW:
+			DSMGINE_CORE_INFO("[OpenGL Debug LOW] {0}", message);
+			break;
+		case GL_DEBUG_SEVERITY_NOTIFICATION:
+			DSMGINE_CORE_VERBOSE("[OpenGL Debug NOTIFICATION] {0}", message);
+			break;
+		}
+	}
+#else
+#endif
+
 	void OpenGLRenderer::Init()
 	{
 		Renderer::Submit([]()
 		{
+#ifndef DSMGINE_FORCE_OPENGL_3_2
+			glDebugMessageCallback(OpenGLLogMessage, nullptr);
+			glEnable(GL_DEBUG_OUTPUT);
+			glEnable(GL_DEBUG_OUTPUT_SYNCHRONOUS);
+#else
+#endif
+
 			glEnable(GL_DEPTH_TEST);
 			//glEnable(GL_CULL_FACE);
 			glCullFace(GL_BACK);

@@ -52,6 +52,9 @@ project "DSMgerous"
 		optimize "On"
 		symbols "Off"
 
+	filter "options:OpenGL-3.2"
+		defines "DSMGINE_FORCE_OPENGL_3_2"
+
 	-- Windows
 	filter "system:windows"
 		systemversion "latest"

@@ -10,6 +10,12 @@ workspace "DSMgerous"
 
 	flags { "MultiProcessorCompile" }
 
+	newoption
+	{
+		trigger = "OpenGL-3.2",
+		description = "Force the use of OpenGL 3.2"
+	}
+
 -- Directories
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
