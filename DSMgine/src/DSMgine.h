@@ -13,6 +13,8 @@
 
 #include "DSMgine/Core/Input.h"
 
+#include "DSMgine/Renderer/Renderer.h"
+
 #include <ImGui/imgui.h>
 
 // ---Entry Point------------

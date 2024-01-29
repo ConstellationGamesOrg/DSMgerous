@@ -41,6 +41,8 @@ public:
 	{
 		//DSMGINE_VERBOSE("GameLayer::OnUpdate");
 		//DSMGINE_VERBOSE(DSMgine::Input::IsKeyPressed(DSMGINE_KEY_SPACE));
+
+		DSMgine::Renderer::Clear(m_ClearColor[0], m_ClearColor[1], m_ClearColor[2], m_ClearColor[3]);
 	}
 
 	virtual void OnImGuiRender() override
@@ -66,8 +68,7 @@ public:
 		ImGui::End();
 
 		ImGui::Begin("EditorLayer1");
-		static float color[4] = { 0.0f, 0.0f, 0.0f, 0.0f };
-		ImGui::ColorPicker4("Color", (float*)&color);
+		ImGui::ColorPicker4("Color", (float*)&m_ClearColor);
 		ImGuiShowHelpMarker(
 			"In the ImGui docking branch, you can dock any window into another even without an ImGui::DockSpace(). Test it!" "\n"
 		);
@@ -78,6 +79,9 @@ public:
 	{
 		DSMGINE_VERBOSE(event.ToString());
 	}
+
+private:
+	float m_ClearColor[4] = { 1.0f, 0.0f, 0.54901960784f, 1.0f };
 };
 
 class DSMgerous : public DSMgine::Application

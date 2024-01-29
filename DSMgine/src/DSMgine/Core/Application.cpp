@@ -1,9 +1,10 @@
 #include <DSMginePCH.h>
 
 #include "DSMgine/Core/Application.h"
+#include "DSMgine/Renderer/Renderer.h"
 
+// NOTE: Temporary
 #include <glad/glad.h>
-#include <GLFW/glfw3.h>
 
 namespace DSMgine
 {
@@ -19,10 +20,13 @@ namespace DSMgine
 
 		m_ImGuiLayer = new ImGuiLayer("ImGui");
 		PushOverlay(m_ImGuiLayer);
+
+		Renderer::Init();
 	}
 
 	Application::~Application()
 	{
+		Renderer::Shutdown();
 	}
 
 	void Application::RenderImGui()
@@ -39,19 +43,19 @@ namespace DSMgine
 
 		while (m_Running)
 		{
-			glClearColor(1.0f, 0.0f, 0.54901960784f, 1.0f);
-			glClear(GL_COLOR_BUFFER_BIT);
-
 			for (Layer* layer : m_LayerStack)
 				layer->OnUpdate(0.0f);
 
-			RenderImGui();
+			// Render ImGui on render thread
+			Renderer::Submit([this]()
+			{
+				this->RenderImGui();
+			});
 
-			glfwSwapBuffers(static_cast<GLFWwindow*>(m_Window->GetNativeWindow()));
-			glfwPollEvents();
+			Renderer::WaitAndRender();
+
+			m_Window->OnUpdate();
 		}
-
-		glfwTerminate();
 
 		OnShutdown();
 	}
@@ -91,7 +95,11 @@ namespace DSMgine
 			return false;
 		}
 		m_Minimized = false;
-		glViewport(0, 0, width, height);
+
+		Renderer::Submit([width, height]()
+		{
+			glViewport(0, 0, width, height);
+		});
 
 		return false;
 	}
