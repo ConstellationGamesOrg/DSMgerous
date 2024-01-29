@@ -4,6 +4,8 @@
 #include "DSMgine/Core/Application.h"
 #include "DSMgine/Core/Log.h"
 
+#include <DSMgine/Core/Assert.h>
+
 #include "DSMgine/Core/Event/Event.h"
 #include "DSMgine/Core/Event/ApplicationEvent.h"
 #include "DSMgine/Core/Event/KeyEvent.h"

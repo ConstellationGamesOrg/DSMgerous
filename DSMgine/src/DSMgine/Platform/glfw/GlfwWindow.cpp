@@ -48,8 +48,7 @@ namespace DSMgine
 		if (!s_GLFWInitialized)
 		{
 			int success = glfwInit();
-			if (!success)
-				DSMGINE_CORE_ERROR("Could not intialize GLFW!");
+			DSMGINE_CORE_ASSERT(success, "Could not intialize GLFW!");
 			glfwSetErrorCallback(GLFWErrorCallback);
 
 			s_GLFWInitialized = true;
@@ -72,8 +71,7 @@ namespace DSMgine
 		glfwMakeContextCurrent(m_Window);
 		LoadIcon(m_Data.IconPath);
 		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
-		if (!status)
-			DSMGINE_CORE_ERROR("Failed to initialize glad!");
+		DSMGINE_CORE_ASSERT(status, "Failed to initialize glad!");
 		glfwSetWindowUserPointer(m_Window, &m_Data);
 
 		// Set GLFW callbacks
